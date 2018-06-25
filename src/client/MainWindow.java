@@ -27,7 +27,7 @@ public class MainWindow {
 	private JTextField nameField;
 	private JPasswordField passwordField;
 	private TextArea messageArea;
-	private JLabel lblNewLabel;
+	private JLabel labelOne;
 	private JButton buRegistr;
 	private JButton butEntry;
 	private JButton butSend;
@@ -125,9 +125,9 @@ public class MainWindow {
 		messageArea.setPreferredSize(new Dimension(600, 130));
 		panel_1.add(messageArea);
 		
-		lblNewLabel = new JLabel("New label");
-		lblNewLabel.setBounds(467, 34, 142, 85);
-		frame.getContentPane().add(lblNewLabel);
+		labelOne = new JLabel("1111");
+		labelOne.setBounds(467, 34, 142, 85);
+		frame.getContentPane().add(labelOne);
 		
 		JLabel label_3 = new JLabel("Введите ваше сообщение");
 		label_3.setPreferredSize(new Dimension(131, 20));
@@ -167,7 +167,7 @@ public class MainWindow {
 		return nameField;
 	}
 	public JLabel getLblNewLabel() {
-		return lblNewLabel;
+		return labelOne;
 	}
 	public JButton getButton_1() {
 		return buRegistr;
