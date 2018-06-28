@@ -15,6 +15,7 @@ public class MyConnector {
 		prop.setProperty("user", "root");
 		prop.setProperty("password","Lit227v");
 		prop.setProperty("create", "true");
+		prop.setProperty("useSSL", "true");
 	}
 
 	public  Connection getConnection(){

@@ -5,7 +5,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.sql.PreparedStatement;
-import java.util.Collection;
 import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
@@ -14,40 +13,29 @@ import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
-import server.MyConnector;
+import server.Test;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 @Path("/restExample")
 public class Server {
-	//DataStore dataStore = new DataStore();
+	//Test test = new Test();
 
-	// Отримання переліку студентів у форматі JSON
-	@GET
+	@POST
 	@Path("/user/{name}/{password}")
-	@Produces(MediaType.TEXT_PLAIN)
-	public boolean getUser(@PathParam("name") String name, @PathParam("password") String password) {
-		MyConnector connector = new MyConnector();
-		Connection conn = connector.getConnection();
+	@Produces(MediaType.APPLICATION_JSON)
+	public String getUser(@PathParam("name") String name, @PathParam("password") String password) throws Exception {
 		
-		boolean res = false;
+		String res = name + " " + password;
 		
-/*		try {
-			PreparedStatement pS = null;
-			String sql = "SELECT name FROM user_info Where name = ? and password = ?";
-			
-			pS.setString(1, name);
-			pS.setString(2, password);
-			
-			pS = conn.prepareStatement(sql);
-			ResultSet rs = pS.executeQuery(sql);
-			res = true;
-		} catch (SQLException e) {
-			e.printStackTrace();
-		} finally {
-			connector.closeConnection();
-		}*/
+		//System.err.println(res);
+		
+		//try {
+			res = Test.Zapros(name, password);
+		//} catch (Exception e) {
+		//	e.printStackTrace();
+		//}
 		return res;
 	}
 
