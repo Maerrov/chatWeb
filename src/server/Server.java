@@ -25,17 +25,13 @@ public class Server {
 	@POST
 	@Path("/user/{name}/{password}")
 	@Produces(MediaType.APPLICATION_JSON)
-	public String getUser(@PathParam("name") String name, @PathParam("password") String password) throws Exception {
-		
+	public String getUser(@PathParam("name") String name, @PathParam("password") String password){
 		String res = name + " " + password;
-		
-		//System.err.println(res);
-		
-		//try {
+		try {
 			res = Test.Zapros(name, password);
-		//} catch (Exception e) {
-		//	e.printStackTrace();
-		//}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 		return res;
 	}
 

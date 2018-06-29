@@ -20,8 +20,9 @@ public class MyConnector {
 
 	public  Connection getConnection(){
 		try {
+			Class.forName("com.mysql.jdbc.Driver").newInstance();
 			conn = DriverManager.getConnection(url, prop);
-		} catch (SQLException e) {
+		} catch (InstantiationException | IllegalAccessException | ClassNotFoundException | SQLException e) {
 			System.err.println("Проблеми із підключенням до " + url);
 			e.printStackTrace();
 		}
