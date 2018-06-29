@@ -20,7 +20,6 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 @Path("/restExample")
 public class Server {
-	//Test test = new Test();
 
 	@POST
 	@Path("/user/{name}/{password}")
@@ -29,6 +28,32 @@ public class Server {
 		String res = name + " " + password;
 		try {
 			res = Test.Zapros(name, password);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return res;
+	}
+	
+	@POST
+	@Path("/user/{name}")
+	@Produces(MediaType.APPLICATION_JSON)
+	public String getUser(@PathParam("name") String name){
+		String res = name;
+		try {
+			res = Test.Zapros(name);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return res;
+	}
+	
+	@POST
+	@Path("/registr/{name}/{password}")
+	@Produces(MediaType.APPLICATION_JSON)
+	public String newUser(@PathParam("name") String name, @PathParam("password") String password){
+		String res = name + " " + password;
+		try {
+			res = Test.setNewUser(name, password);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
